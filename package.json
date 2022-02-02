@@ -1,0 +1,19 @@
+{
+  "name": "shortener",
+  "version": "1.0.0",
+  "description": "A simple URL shortener",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "start": "node index.js"
+  },
+  "author": "Natália Fonseca",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
