@@ -1,14 +1,11 @@
 import express from "express";
 import { router as userRouter } from "./routes/UserRouter.js";
+import morgan from "morgan";
 
 const app = express();
 app.use(express.json());
 
-app.use((request, response, next) => {
-  console.log(request.method, request.url);
-
-  next();
-});
+app.use(morgan("dev"));
 
 app.use("/api/user", userRouter);
 
