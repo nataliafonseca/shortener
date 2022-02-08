@@ -1,0 +1,17 @@
+_id: env_16b462fde4bbc18288dbcd816aeb5eae137961eb
+type: Environment
+parentId: wrk_3cd1ef00c5ff432fb766d2398b341e10
+modified: 1644282558707
+created: 1643845999532
+name: Base Environment
+data:
+  baseURL: http://localhost:3333
+  shortenerId: "{% response 'body', 'req_e818dc6eef764cd6a9c316eb2f47d38f',
+    'b64::JC5zaG9ydGVuZXIuX2lk::46b', 'never', 60 %}"
+dataPropertyOrder:
+  "&":
+    - baseURL
+    - shortenerId
+color: null
+isPrivate: false
+metaSortKey: 1643845999532

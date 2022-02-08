@@ -1,0 +1,29 @@
+_id: req_e818dc6eef764cd6a9c316eb2f47d38f
+type: Request
+parentId: fld_90ff6501d4b04213b229afe3d78f1b89
+modified: 1644282588654
+created: 1643846259741
+url: "{{ _.baseURL }}/api/shortener"
+name: create
+description: ""
+method: POST
+body:
+  mimeType: application/json
+  text: |-
+    	{
+    		"name": "Facebook"
+    	}
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_5f810ef514644c0389f07d285adf48c3
+authentication: {}
+metaSortKey: -1643848184734
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

@@ -1,0 +1,29 @@
+_id: req_76800bb1103c4f3686bdfe296bf0a96e
+type: Request
+parentId: fld_90ff6501d4b04213b229afe3d78f1b89
+modified: 1644282590860
+created: 1643846274443
+url: "{{ _.baseURL }}/api/shortener/{{ _.shortenerId }}"
+name: update
+description: ""
+method: PUT
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"name": "New name"
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_1d2ce5dce1774f05aeaa07b067aa429d
+authentication: {}
+metaSortKey: -1643848184721.5
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
