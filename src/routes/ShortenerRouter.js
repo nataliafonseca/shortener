@@ -5,8 +5,9 @@ export const router = Router();
 
 const controller = new ShortenerController();
 
-router.get("/", controller.index);
-router.get("/:id", controller.getOne);
-router.post("/", controller.store);
-router.put("/:id", controller.update);
-router.delete("/:id", controller.remove);
+router.get("/:hash", controller.redirect);
+router.get("/api/shortener/", controller.index);
+router.get("/api/shortener/:id", controller.getOne);
+router.post("/api/shortener/", controller.store);
+router.put("/api/shortener/:id", controller.update);
+router.delete("/api/shortener/:id", controller.remove);

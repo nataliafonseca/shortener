@@ -15,7 +15,7 @@ app.use(express.json());
 
 app.use(morgan("dev"));
 
-app.use("/api/shortener", shortenerRouter);
+app.use(shortenerRouter);
 
 app.listen(PORT, () => {
   console.log(`🔥 Server running on port ${PORT}!`);
