@@ -1,7 +1,7 @@
 _id: req_e818dc6eef764cd6a9c316eb2f47d38f
 type: Request
 parentId: fld_90ff6501d4b04213b229afe3d78f1b89
-modified: 1644282588654
+modified: 1644508619996
 created: 1643846259741
 url: "{{ _.baseURL }}/api/shortener"
 name: create
@@ -11,7 +11,9 @@ body:
   mimeType: application/json
   text: |-
     	{
-    		"name": "Facebook"
+        "expiredDate": "2022-02-09T22:53:14.603Z",
+    		"name": "Github",
+        "link": "https://github.com"
     	}
 parameters: []
 headers:

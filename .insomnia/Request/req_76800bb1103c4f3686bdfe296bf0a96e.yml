@@ -1,7 +1,7 @@
 _id: req_76800bb1103c4f3686bdfe296bf0a96e
 type: Request
 parentId: fld_90ff6501d4b04213b229afe3d78f1b89
-modified: 1644282590860
+modified: 1644508604290
 created: 1643846274443
 url: "{{ _.baseURL }}/api/shortener/{{ _.shortenerId }}"
 name: update
@@ -11,7 +11,7 @@ body:
   mimeType: application/json
   text: |-
     {
-    	"name": "New name"
+    	"name": "Github"
     }
 parameters: []
 headers:
