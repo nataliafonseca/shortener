@@ -1,17 +1,17 @@
-_id: req_44036f91d0fa402fbcb5aa4c191ffb15
+_id: req_829fd1f9348249b3997ca9024a2f6fcf
 type: Request
 parentId: fld_90ff6501d4b04213b229afe3d78f1b89
-modified: 1644508603124
-created: 1643846303652
-url: "{{ _.baseURL }}/api/shortener/{{ _.shortenerId }}"
-name: delete
+modified: 1644508725016
+created: 1644508682840
+url: "{{ _.baseURL }}/{{ _.shortenerHash }}"
+name: redirect
 description: ""
-method: DELETE
+method: GET
 body: {}
 parameters: []
 headers: []
 authentication: {}
-metaSortKey: -1643848184715.25
+metaSortKey: -1643848184859
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true
