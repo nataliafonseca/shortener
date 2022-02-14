@@ -1,9 +1,9 @@
-_id: req_76800bb1103c4f3686bdfe296bf0a96e
+_id: req_00de508ecc804a8fa718eaca3718b3ee
 type: Request
-parentId: fld_90ff6501d4b04213b229afe3d78f1b89
-modified: 1644877129619
-created: 1643846274443
-url: "{{ _.baseURL }}/api/shortener/{{ _.shortenerId }}"
+parentId: fld_a877d5b7c750486da6ef88e1def6a906
+modified: 1644881439882
+created: 1644880588974
+url: "{{ _.baseURL }}/api/user/{{ _.userId }}"
 name: update
 description: ""
 method: PUT
@@ -11,7 +11,14 @@ body:
   mimeType: application/json
   text: |-
     {
-    	"name": "Github"
+      "name": "Natalia Fonseca",
+      "email": "nat@nat.nat",
+      "password": "123456",
+      "role": "Administrator",
+      "phones": [
+        "79999999999",
+        "79999999998"
+      ]
     }
 parameters: []
 headers:

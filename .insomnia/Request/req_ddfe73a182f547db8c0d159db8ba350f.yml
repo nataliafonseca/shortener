@@ -1,20 +1,24 @@
-_id: req_e818dc6eef764cd6a9c316eb2f47d38f
+_id: req_ddfe73a182f547db8c0d159db8ba350f
 type: Request
-parentId: fld_90ff6501d4b04213b229afe3d78f1b89
-modified: 1644877109375
-created: 1643846259741
-url: "{{ _.baseURL }}/api/shortener"
+parentId: fld_a877d5b7c750486da6ef88e1def6a906
+modified: 1644881444037
+created: 1644880588956
+url: "{{ _.baseURL }}/api/user"
 name: create
 description: ""
 method: POST
 body:
   mimeType: application/json
   text: |-
-    	{
-        "expiredDate": "2022-02-09T22:53:14.603Z",
-    		"name": "Github",
-        "link": "https://github.com"
-    	}
+    {
+      "name": "Natalia",
+      "email": "nat@nat.nat",
+      "password": "123456",
+      "phones": [
+        "79999999999",
+        "79999999998"
+      ]
+    }
 parameters: []
 headers:
   - name: Content-Type
