@@ -7,7 +7,7 @@ export class ShortenerController {
       const shorteners = await ShortenerModel.find().lean();
       return response.json({ shorteners });
     } catch (error) {
-      return response.status(400).json({ message: "Unexpected Error" });
+      return response.status(400).json({ message: error.message });
     }
   }
 
@@ -25,7 +25,7 @@ export class ShortenerController {
 
       response.status(201).json({ shortener });
     } catch (error) {
-      return response.status(400).json({ message: "Unexpected Error" });
+      return response.status(400).json({ message: error.message });
     }
   }
 
@@ -50,7 +50,7 @@ export class ShortenerController {
 
       return response.json({ shortener });
     } catch (error) {
-      return response.status(400).json({ message: "Unexpected Error" });
+      return response.status(400).json({ message: error.message });
     }
   }
 
@@ -68,7 +68,7 @@ export class ShortenerController {
 
       return response.json({ removed: shortener });
     } catch (error) {
-      return response.status(400).json({ message: "Unexpected Error" });
+      return response.status(400).json({ message: error.message });
     }
   }
 
@@ -84,7 +84,7 @@ export class ShortenerController {
 
       return response.json({ shortener });
     } catch (error) {
-      return response.status(400).json({ message: "Unexpected Error" });
+      return response.status(400).json({ message: error.message });
     }
   }
 
@@ -115,7 +115,7 @@ export class ShortenerController {
 
       return response.status(301).redirect(shortener.link);
     } catch (error) {
-      return response.status(400).json({ message: "Unexpected Error" });
+      return response.status(400).json({ message: error.message });
     }
   }
 }
