@@ -13,13 +13,15 @@ export class UserController {
   }
 
   async store(request, response) {
-    const { body } = request;
+    const { name, email, password, phones } = request.body;
 
-    const passwordHashed = await bcrypt.hash(body.password, 10);
+    const passwordHashed = await bcrypt.hash(password, 10);
 
     try {
       const user = await UserModel.create({
-        ...body,
+        name,
+        email,
+        phones,
         password: passwordHashed,
       });
 
@@ -31,15 +33,17 @@ export class UserController {
 
   async update(request, response) {
     const { id } = request.params;
-    const { body } = request;
+    const { name, email, password, phones } = request.body;
 
     try {
-      const passwordHashed = await bcrypt.hash(body.password, 10);
+      const passwordHashed = await bcrypt.hash(password, 10);
 
       const user = await UserModel.findByIdAndUpdate(
         id,
         {
-          ...body,
+          name,
+          email,
+          phones,
           password: passwordHashed,
         },
         { new: true, runValidators: true }
