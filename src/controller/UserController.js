@@ -8,7 +8,7 @@ export class UserController {
       const users = await UserModel.find().lean();
       return response.json({ users });
     } catch (error) {
-      return response.status(400).json({ message: "Unexpected Error " });
+      return response.status(400).json({ message: "Unexpected Error" });
     }
   }
 
@@ -26,7 +26,7 @@ export class UserController {
       response.status(201).json({ user });
     } catch (error) {
       console.log(error);
-      return response.status(400).json({ message: "Unexpected Error " });
+      return response.status(400).json({ message: "Unexpected Error" });
     }
   }
 
@@ -52,7 +52,7 @@ export class UserController {
 
       return response.json({ user });
     } catch (error) {
-      return response.status(400).json({ message: "Unexpected Error " });
+      return response.status(400).json({ message: "Unexpected Error" });
     }
   }
 
@@ -70,7 +70,7 @@ export class UserController {
 
       return response.json({ removed: user });
     } catch (error) {
-      return response.status(400).json({ message: "Unexpected Error " });
+      return response.status(400).json({ message: "Unexpected Error" });
     }
   }
 
@@ -86,7 +86,7 @@ export class UserController {
 
       return response.json({ user });
     } catch (error) {
-      return response.status(400).json({ message: "Unexpected Error " });
+      return response.status(400).json({ message: "Unexpected Error" });
     }
   }
 }
