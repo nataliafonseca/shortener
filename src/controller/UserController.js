@@ -2,6 +2,7 @@ import crypto from "crypto";
 import { UserModel } from "../model/UserModel.js";
 import bcrypt from "bcrypt";
 import { AppError } from "../errors/AppError.js";
+import jwt from "jsonwebtoken";
 
 export class UserController {
   async index(request, response) {
@@ -11,6 +12,13 @@ export class UserController {
 
   async store(request, response) {
     const { name, email, password, phones } = request.body;
+
+    const userExists = await UserModel.findOne({ email });
+
+    if (userExists) {
+      throw new AppError("An user with this email already exists.");
+    }
+
     const passwordHashed = await bcrypt.hash(password, 10);
 
     const user = await UserModel.create({
@@ -29,16 +37,16 @@ export class UserController {
 
     const passwordHashed = await bcrypt.hash(password, 10);
 
-      const user = await UserModel.findByIdAndUpdate(
-        id,
-        {
-          name,
-          email,
-          phones,
-          password: passwordHashed,
-        },
-        { new: true, runValidators: true }
-      );
+    const user = await UserModel.findByIdAndUpdate(
+      id,
+      {
+        name,
+        email,
+        phones,
+        password: passwordHashed,
+      },
+      { new: true, runValidators: true }
+    );
 
     if (!user) {
       throw new AppError("User not found", 404);
@@ -50,7 +58,7 @@ export class UserController {
   async remove(request, response) {
     const { id } = request.params;
 
-      const user = await UserModel.findById(id);
+    const user = await UserModel.findById(id);
 
     if (!user) {
       throw new AppError("User not found", 404);
@@ -64,12 +72,34 @@ export class UserController {
   async getOne(request, response) {
     const { id } = request.params;
 
-      const user = await UserModel.findById(id);
+    const user = await UserModel.findById(id);
 
     if (!user) {
       throw new AppError("User not found", 404);
     }
 
     return response.json({ user });
+  }
+
+  async login(request, response) {
+    const { email, password } = request.body;
+    const user = await UserModel.findOne({ email });
+
+    if (!user) {
+      throw new AppError("Invalid email/password combination.", 401);
+    }
+
+    const passwordChecksOut = await bcrypt.compare(password, user.password);
+
+    if (!passwordChecksOut) {
+      throw new AppError("Invalid email/password combination.", 401);
+    }
+
+    const token = jwt.sign({ id: user.id }, `${process.env.JWT_SECRET}`, {
+      expiresIn: "1d",
+    });
+    console.log(token);
+
+    return response.json({ user, token });
   }
 }

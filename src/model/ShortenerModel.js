@@ -9,6 +9,7 @@ const ShortenerSchema = mongoose.Schema(
     expired: { type: Boolean, default: false },
     expiredDate: Date,
     name: String,
+    user: { type: mongoose.Schema.Types.ObjectId, ref: "user" },
   },
   {
     timestamp: true,
