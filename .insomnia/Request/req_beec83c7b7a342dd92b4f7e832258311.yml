@@ -1,7 +1,7 @@
 _id: req_beec83c7b7a342dd92b4f7e832258311
 type: Request
 parentId: fld_90ff6501d4b04213b229afe3d78f1b89
-modified: 1644282571451
+modified: 1645059206904
 created: 1643846066994
 url: "{{ _.baseURL }}/api/shortener/{{ _.shortenerId }}"
 name: get one
@@ -10,7 +10,9 @@ method: GET
 body: {}
 parameters: []
 headers: []
-authentication: {}
+authentication:
+  type: bearer
+  token: "{{ _.userToken }}"
 metaSortKey: -1643848184759
 isPrivate: false
 settingStoreCookies: true

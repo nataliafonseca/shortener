@@ -1,25 +1,26 @@
-_id: req_76800bb1103c4f3686bdfe296bf0a96e
+_id: req_e1092a010f0345ff89acec4f4c2fbf41
 type: Request
-parentId: fld_90ff6501d4b04213b229afe3d78f1b89
-modified: 1645051441904
-created: 1643846274443
-url: "{{ _.baseURL }}/api/shortener/{{ _.shortenerId }}"
-name: update
+parentId: fld_a877d5b7c750486da6ef88e1def6a906
+modified: 1645059180727
+created: 1645059113128
+url: "{{ _.baseURL }}/api/user/login"
+name: login 2
 description: ""
-method: PUT
+method: POST
 body:
   mimeType: application/json
   text: |-
     {
-    	"name": "Github"
+      "email": "nat2@nat.nat",
+      "password": "123456"
     }
 parameters: []
 headers:
   - name: Content-Type
     value: application/json
-    id: pair_1d2ce5dce1774f05aeaa07b067aa429d
+    id: pair_0718b4dd1f854a46bca27cf229c724f6
 authentication: {}
-metaSortKey: -1643848184727.75
+metaSortKey: -1643800808864.625
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true

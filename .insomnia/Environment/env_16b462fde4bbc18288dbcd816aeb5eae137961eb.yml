@@ -1,7 +1,7 @@
 _id: env_16b462fde4bbc18288dbcd816aeb5eae137961eb
 type: Environment
 parentId: wrk_3cd1ef00c5ff432fb766d2398b341e10
-modified: 1644880889119
+modified: 1645059133274
 created: 1643845999532
 name: Base Environment
 data:
@@ -12,12 +12,20 @@ data:
     'b64::JC5zaG9ydGVuZXIuaGFzaA==::46b', 'never', 60 %}"
   userId: "{% response 'body', 'req_ddfe73a182f547db8c0d159db8ba350f',
     'b64::JC51c2VyLl9pZA==::46b', 'never', 60 %}"
+  incorrectId: 41224d776a326fb40f000001
+  userToken: "{% response 'body', 'req_ab0cf4f217744ef7a2b0baeb9d67aac0',
+    'b64::JC50b2tlbg==::46b', 'never', 60 %}"
+  userToken2: "{% response 'body', 'req_e1092a010f0345ff89acec4f4c2fbf41',
+    'b64::JC50b2tlbg==::46b', 'never', 60 %}"
 dataPropertyOrder:
   "&":
     - baseURL
     - shortenerId
     - shortenerHash
     - userId
+    - incorrectId
+    - userToken
+    - userToken2
 color: null
 isPrivate: false
 metaSortKey: 1643845999532

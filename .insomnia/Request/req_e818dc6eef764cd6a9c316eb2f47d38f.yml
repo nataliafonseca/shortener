@@ -1,7 +1,7 @@
 _id: req_e818dc6eef764cd6a9c316eb2f47d38f
 type: Request
 parentId: fld_90ff6501d4b04213b229afe3d78f1b89
-modified: 1644877109375
+modified: 1645059519523
 created: 1643846259741
 url: "{{ _.baseURL }}/api/shortener"
 name: create
@@ -11,16 +11,18 @@ body:
   mimeType: application/json
   text: |-
     	{
-        "expiredDate": "2022-02-09T22:53:14.603Z",
-    		"name": "Github",
-        "link": "https://github.com"
+        "expiredDate": "2022-02-17T22:53:14.603Z",
+    		"name": "Linkedin",
+        "link": "https://linkedin.com"
     	}
 parameters: []
 headers:
   - name: Content-Type
     value: application/json
     id: pair_5f810ef514644c0389f07d285adf48c3
-authentication: {}
+authentication:
+  type: bearer
+  token: "{{ _.userToken }}"
 metaSortKey: -1643848184734
 isPrivate: false
 settingStoreCookies: true
