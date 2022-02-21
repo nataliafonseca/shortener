@@ -33,35 +33,44 @@ export class UserController {
 
   async update(request, response) {
     const { id } = request.params;
-    const { name, email, password, phones } = request.body;
+    const { name, email, password, phones, role } = request.body;
+    const loggedUser = request.user._id;
 
     const passwordHashed = await bcrypt.hash(password, 10);
 
-    const user = await UserModel.findByIdAndUpdate(
-      id,
-      {
-        name,
-        email,
-        phones,
-        password: passwordHashed,
-      },
-      { new: true, runValidators: true }
-    );
+    const user = await UserModel.findById(id);
 
     if (!user) {
       throw new AppError("User not found", 404);
     }
+
+    if (!loggedUser.equals(user._id)) {
+      throw new AppError("Authentication error", 401);
+    }
+
+    user.name = name || user.name;
+    user.email = email || user.email;
+    user.role = role || user.role;
+    user.phones = phones || user.phones;
+    user.password = passwordHashed || user.password;
+
+    await user.save();
 
     return response.json({ user });
   }
 
   async remove(request, response) {
     const { id } = request.params;
+    const loggedUser = request.user._id;
 
     const user = await UserModel.findById(id);
 
     if (!user) {
       throw new AppError("User not found", 404);
+    }
+
+    if (!loggedUser.equals(user._id)) {
+      throw new AppError("Authentication error", 401);
     }
 
     await user.remove();
@@ -71,11 +80,16 @@ export class UserController {
 
   async getOne(request, response) {
     const { id } = request.params;
+    const loggedUser = request.user._id;
 
     const user = await UserModel.findById(id);
 
     if (!user) {
       throw new AppError("User not found", 404);
+    }
+
+    if (!loggedUser.equals(user._id)) {
+      throw new AppError("Authentication error", 401);
     }
 
     return response.json({ user });

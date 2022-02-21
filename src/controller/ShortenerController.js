@@ -28,32 +28,38 @@ export class ShortenerController {
   async update(request, response) {
     const { id } = request.params;
     const { link, name, expiredDate } = request.body;
+    const user = request.user._id;
 
-    const shortener = await ShortenerModel.findByIdAndUpdate(
-      id,
-      {
-        user: request.user._id,
-        link,
-        name,
-        expiredDate,
-      },
-      { new: true }
-    );
+    const shortener = await ShortenerModel.findById(id);
 
     if (!shortener) {
       throw new AppError("Shortener not found", 404);
     }
+
+    if (!user.equals(shortener.user)) {
+      throw new AppError("Authentication error", 401);
+    }
+
+    shortener.link = link || shortener.link;
+    shortener.name = name || shortener.name;
+    shortener.expiredDate = expiredDate || shortener.expiredDate;
+    await shortener.save();
 
     return response.json({ shortener });
   }
 
   async remove(request, response) {
     const { id } = request.params;
+    const user = request.user._id;
 
     const shortener = await ShortenerModel.findById(id);
 
     if (!shortener) {
       throw new AppError("Shortener not found", 404);
+    }
+
+    if (!user.equals(shortener.user)) {
+      throw new AppError("Authentication error", 401);
     }
 
     await shortener.remove();
@@ -63,11 +69,19 @@ export class ShortenerController {
 
   async getOne(request, response) {
     const { id } = request.params;
+    const user = request.user._id;
 
     const shortener = await ShortenerModel.findById(id);
 
     if (!shortener) {
       throw new AppError("Shortener not found", 404);
+    }
+
+    console.log(shortener.user);
+    console.log(user);
+
+    if (!user.equals(shortener.user)) {
+      throw new AppError("Authentication error", 401);
     }
 
     return response.json({ shortener });
